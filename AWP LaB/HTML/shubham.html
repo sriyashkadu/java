@@ -1,0 +1,164 @@
+<html>
+
+<head>
+    <title>
+        ghoda
+    </title>
+
+    <style>
+         * {
+            box-sizing: border-box;
+        }
+        div{
+            border : 1px solid black;
+        }
+
+        @media only screen and (max-width:800px) {
+    /* For tablets: */
+    .main {
+        width: 80%;
+        padding: 0;
+    }
+    .right {
+        width: 100%;
+    }
+    }
+    @media only screen and (max-width:500px) {
+    /* For mobile phones: */
+    .menu, .main, .right {
+        width: 100%;
+    }
+    }
+
+
+        .mainDiv {
+            margin: 1%;
+			height:100%;
+			width:100%;
+            background-color:rgba(212, 190, 41, 0.863);
+        }
+        /* rgba(200, 162, 56, 0.828) */
+        .navBar {
+           
+            text-align: center;
+            width: 100%;
+            height: 20%;
+            padding: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color:#8C8C8C;
+            color: rgba(15, 2, 2, 0.76);
+            /* rgba(95, 93, 93, 0.993); */
+
+        }
+
+        .menu a:hover
+        {
+            zoom: normal;
+        }
+        .main {
+        
+           
+            height: 70%;
+            width: 100%;
+        }
+
+        .left {
+           
+            float: left;
+            width: 20%;
+            height: 100%;
+        }
+
+        .menu {
+            padding: 20px;
+            border-bottom: 1px solid gray;
+            margin: 1%;
+            text-align: left;
+            font-family: cursive;
+          
+        }
+
+        .center {
+           
+            width: 80%;
+            height: 100%;
+           
+        }
+
+        .center h2 {
+            text-align: center;
+            /*padding: 15px;*/
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .center img {
+            padding-left: 10%;
+           position: relative;
+            height: 85%;
+            width: 70%;
+            
+        }
+
+        .right {
+           
+            float:right;
+            width: 20%;
+            height: 100%;
+           
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mainDiv">
+        <div class="navBar">
+            <h1>Shegaon</h1>
+            <h4>Sant Nagrit aple swagat aahe..</h4>
+        </div>
+
+        <div class="main">
+            <div class="left">
+                <div>
+                    <div  class="menu" >><a  onclick="cngMandirImg()" href="#">Mandir</a></div>
+                    <div class="menu">Anand Sagar</div>
+                    <div class="menu">Sharma ji ki kachori</div>
+                    <div class="menu">Anand Visava</div>
+                    <div class="menu">Anand Vihar</div>
+                </div>
+            </div>
+
+            <div class="right">
+                    <h2>Location:</h2>
+                    <p>Shegaon is located 300 km west of Nagpur and 550 km east of Mumbai.
+                        <br>It is connected by Hajira–Dhule–Howrah National Highway 6 to Khamgaon,
+                        <br> Balapur, Malkapur and Akola.
+                    </p>
+                    <h2>About:</h2>
+                    <p>Shegaon is a town and municipal council in the Buldana district in
+                        <br>the Indian state of Maharashtra.
+                        <br>Shegaon has become a pilgrimage centre due to the influence
+                        <br>of Shri Sant Gajanan Maharaj, who is considered a saint by Hindus.
+                    </p>
+                </div>
+
+            <div class="center">
+                <h2>Beauty of Shegaon...</h2>
+                <img id="myImg" src="statue-of-shri-gajanan-maharaj-anand-sagar-shegaon-buldana-district-G1W2RF.jpg"/>
+            </div>
+
+          
+        </div>
+
+    </div>
+
+
+    <script>
+        function cngMandirImg() {
+            document.getElementById('myImg').src='mandir.jpg'
+
+
+}
+        </script>
+</body>
+
+</html>

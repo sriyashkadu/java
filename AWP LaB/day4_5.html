@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>
+            Day4_5
+        </title>
+        <style>
+            #btn{
+                font-family: cursive;
+                background-color: lightpink;
+                width: 80px;
+                height: 40px;
+            }
+            #Div1
+            {
+                width: 100%;
+                height: 60%;
+                background-color: lightsteelblue;
+            }
+        </style>
+        <script>
+            var data=[];
+        function show()
+        {
+            var url="https://jsonplaceholder.typicode.com/users";
+            var httpReq=new XMLHttpRequest();
+            httpReq.onreadystatechange=dataAvailable;
+
+            httpReq.open("GET",url,true);
+            httpReq.send();
+
+        }
+        function dataAvailable()
+        {
+            if(this.readyState==4 && this.status==200)
+            {
+                var element=JSON.parse(this.responseText);
+                data=element;
+                var content="<table border='1'>";
+                    content+="<th>Name</th><th>email</th><th>phone</th><th>city</th><th>username</th>";
+                    for(i=0;i<element.length;i++)
+                    {
+                        var obj=element[i];
+                        var row="<tr><td>"+obj.name+"</td><td>"+obj.email+"</td><td>"+obj.phone+"</td><td>"+obj.address.city+"</td><td>"+obj.username+"</td></tr>";
+                        content+=row;
+                    }
+                    content+="</table>";
+                    document.getElementById("Div1").innerHTML=content;
+            }
+
+        }
+        function showDetails()
+        {
+            var name=document.getElementById("name1").value;
+            var searchObj= data.filter(function(o){
+                return o.name==name;
+            });
+            document.getElementById("Div1").innerHTML=(JSON.stringify(searchObj));
+
+        }
+        
+        </script>
+    </head>
+    <body>
+        <button id="btn" onclick="show();">Show</button>
+        <input type="text" id="name1" placeholder="name"/>
+        <button id="name" onclick="showDetails()">Showdetails</button>
+        <div id="Div1"></div>
+        <div id="showMore"></div>
+    </body>
+</html>

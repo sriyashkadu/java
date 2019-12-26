@@ -1,0 +1,64 @@
+<html>
+    <head>
+<!--
+        <script src="struc.json">
+            
+        </script>
+-->
+        <script>
+            var Student=[
+    {
+        "PRN":1,
+        "NAME":"Amit",
+        "Marks":[{"DBMS":20,"AWP":45,"OS":46}],
+        "Contact":9826644321,
+        "PERCENT":66
+    },
+    {
+        "PRN":2,
+        "NAME":"Rohan",
+        "Marks":[{"DBMS":20,"AWP":10,"OS":15}],
+        "Contact":9826624321,
+        "PERCENT":15
+    },
+    {
+        "PRN":3,
+        "NAME":"Ankur",
+        "Marks":[{"DBMS":32,"AWP":9,"OS":18}],
+        "Contact":8768875431,
+        "PERCENT":56
+    }
+]
+        var contents="<table border='1'>";
+            function dataAvailable()
+            {
+                    for(i=0; i<Student.length;i++)
+                    {
+                        var obj = Student[i];
+                        var row = "<tr>" + "<td>" + obj.PRN + "</td>" 
+                            + "<td>" + obj.NAME + "</td>" ;
+                            for(j=0; j<obj.Marks.length;j++)
+                                {
+                                    var obj1=obj.Marks[j];
+                                    row +=  "<td>" + obj1.DBMS + "</td>" 
+                                       + "<td>" + obj1.AWP + "</td>" 
+                                        + "<td>" + obj1.OS + "</td>";
+                                }
+                            row += "<td>" + obj.Contact + "</td>"
+                                    + "<td>" + obj.PERCENT + "</td>"
+                                    +"</tr>";
+                        contents += row;
+
+                    }
+                    contents += "</table>";
+                    document.getElementById("output").innerHTML =
+                     contents;
+            }
+        </script>
+        <body>
+        <button onclick="dataAvailable()">Download</button><br>
+            <div id="output"></div>
+        
+    </body>        
+    </head>
+</html>

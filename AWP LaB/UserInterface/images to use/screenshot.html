@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>
+            slideshow
+        </title>
+        <style>
+            .but
+            {
+               height: 30px;
+               width: 70px;
+               color: rgb(0, 0, 0);
+               padding: 1;
+               font-family: cursive  ;
+               }
+               .div
+               {
+                   position:fixed;
+                   height:85%;
+                   width:85%;
+                   overflow: auto;
+                   
+               }
+
+        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            var i=0;
+                 function slideNext()
+                  {
+                    var imageArray=["img6.jpg","img5.jpg","img4.jpg","img3.jpg","img2.jpg","img1.jpg"];
+                    
+                    if(i>6)
+                    {
+                        i=0;
+                    }
+                    var element=$("#slide");
+                var imagename=imageArray[i];
+                element.attr("src",imagename);
+                i++;
+                  }
+                  setInterval(slideNext,3000);
+        </script>
+    </head>
+    
+    <body>
+
+            <button  class='but' id="input" onclick="slideNext();" > Click Me..!</button>
+        
+    <div id="output" class="div">
+          
+             <img src="img7.jpg" id='slide' style='height:100%;width:100%;'/>
+    </div>  
+    
+    
+  
+
+    </body>
+</html>
+    

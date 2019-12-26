@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculator</title>
+<link
+    href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+    rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.topdiv {
+    height: 12em;
+    background-color: #D7D9D9;
+    padding-right: 1em;
+    padding-left: 0.5em;
+}
+
+.calcbody {
+    width: 19%;
+    margin: 5em auto;
+}
+
+.bottomdiv {
+    
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+td {
+    background-color: #E3E3E3;
+    width: 25%;
+    border: 1px solid #D7D9D9;
+    padding: 1em;
+}
+
+input[type="button"] {
+    font-size: 1.5em;
+    width: 99%;
+    height: 99%;
+}
+
+#equal {
+    background-color: #ef865f;
+    color: white;
+}
+
+#clearall {
+    color: #ef865f;
+}
+
+#result {
+    width: 99%;
+    font-size: 2em;
+    height: 50%;
+}
+
+#result, input[type="button"] {
+    color: #898686;
+}
+
+#answer {
+    width: 99%;
+    font-size: 3em;
+    color: rgba(28, 27, 27, 0.7);
+    font-weight: normal;
+}
+
+#answer, #result, input[type="button"] {
+    border: 0;
+    background: transparent;
+}
+
+#answer, #result {
+    text-align: right;
+    
+}
+</style>
+<script type="text/javascript">
+    function valued(val) {
+   	 //alert("val="+val);
+   	 document.getElementById('result').value += val;
+    }
+    function clearall() {
+   	 //alert("clearall");
+   	 document.getElementById('result').value = "";
+   	 document.getElementById('answer').value = "";
+    }
+    function solve() {
+   	 //alert("solve");
+   	 var val = document.getElementById('result').value;
+   	 var res = eval(val);
+   	 document.getElementById('answer').value = res;
+    }
+    function del() {
+   	 //alert("del");
+   	 var val = document.getElementById('result').value;
+   	 var newStr = val.slice(0, -1);
+   	 document.getElementById('result').value=newStr;
+    }
+    
+    function checkOperator(val)
+    {
+        var str=document.getElementById('result').value;
+        if(str) {
+            var last=str.charAt(str.length-1);
+            var operations=['+','-','*','/','%'];
+            if(operations.indexOf(last) > -1)
+                {
+                    alert("wrong input");
+                } else {
+                    valued(val);
+                }
+        }
+        else {
+            valued(val);    
+        }
+    }
+    
+    
+</script>
+</head>
+<body>
+    <div class="calcbody">
+   	 <div class="topdiv">
+   		 <input type="text" id="result">
+   		 
+   		 <input type="text" id="answer">
+   	 </div>
+   	 <div class="bottomdiv">
+   		 <table cellspacing="0">
+   			 <tr>
+   				 <td style="color: #ef865f;"><input type="button" value="C"
+   					 onclick="clearall()" id="clearall"></td>
+   				 <td><input type="button" value="[x]" onclick="del()"
+   					 id="clear"></td>
+   				 <td><input type="button" value="/" onclick="checkOperator('/')"></td>
+   				 <td><input type="button" value="*" onclick="checkOperator('*')"></td>
+   			 </tr>
+   			 <tr>
+   				 <td><input type="button" value="7" onclick="checkOperator('7')" on></td>
+   				 <td><input type="button" value="8" onclick="checkOperator('8')"></td>
+   				 <td><input type="button" value="9" onclick="checkOperator('9')"></td>
+   				 <td><input type="button" value="&mdash;" onclick="checkOperator('-')"></td>
+   			 </tr>
+   			 <tr>
+   				 <td><input type="button" value="4" onclick="checkOperator('4')"></td>
+   				 <td><input type="button" value="5" onclick="checkOperator('5')"></td>
+   				 <td><input type="button" value="6" onclick="checkOperator('6')"></td>
+   				 <td><input type="button" value="+" onclick="checkOperator('+')"></td>
+   			 </tr>
+   			 <tr>
+   				 <td><input type="button" value="1" onclick="checkOperator('1')"></td>
+   				 <td><input type="button" value="2" onclick="checkOperator('2')"></td>
+   				 <td><input type="button" value="3" onclick="checkOperator('3')"></td>
+   				 <td rowspan="2" style="background-color: #ef865f;"><input
+   					 type="button" value="=" onclick="solve()" id="equal"></td>
+   			 </tr>
+   			 <tr>
+   				 <td><input type="button" value="%" onclick="checkOperator('%')"></td>
+   				 <td><input type="button" value="0" onclick="checkOperator('0')"></td>
+   				 <td><input type="button" value="." onclick="checkOperator('.')"></td>
+   			 </tr>
+   		 </table>
+   	 </div>
+    </div>
+</body>
+</html>

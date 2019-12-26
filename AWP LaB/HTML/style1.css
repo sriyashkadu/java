@@ -1,0 +1,40 @@
+body{
+    font-size: 20px;
+    font-family: cursive;
+}
+
+.externalform {
+    display: block;
+    margin: 10px;
+    border: 15px solid green;
+    background-color: azure;
+    text-align: center;
+}
+
+.rightfloatform{
+
+    width: 50%;
+    text-align: right;   
+}
+
+.leftfloatform{
+    width: 50%;
+    text-align: left;   
+}
+
+.inputtext{
+    display: block;
+    width: 200px;
+    height: 20px;
+    border-radius: 7px;
+    border-color: aqua;
+}
+
+.titleSurvey{
+    background-color: coral;
+}
+
+.formSurvey
+{
+    text-align: center;
+}

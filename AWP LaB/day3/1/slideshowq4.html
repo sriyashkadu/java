@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>
+            slideshow
+        </title>
+        
+        <style>
+            #slideshow  {
+                            margin: 50px auto;
+                            width: 20%;
+                            height: 20%;
+                            padding: 10px;
+
+                        }
+            
+            .sticky-header  {
+                              position: sticky;
+                              top: 0;
+                              z-index: 10;
+                            }
+        </style>
+        
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script>
+            var imageArray=["offer2.png","offer3.png","offer4.png"];
+            var i=0;
+            function changeImage()  {
+                                        if(i>2)
+                                            {
+                                                i=0;
+                                            }
+                                        var element=document.getElementById("slide");
+                                        var imagename=imageArray[i];
+                                        element.src=imagename;
+                                        i++;
+                                    }
+            
+            function changeImage2() {
+                                        if(i>2)
+                                            {
+                                                i=0;
+                                            }
+                                        var element=$("#slide");
+                                        var imagename=imageArray[i];
+                                        element.attr("src",imagename);
+                                        i++;
+                                    }
+            //setInterval(changeImage2,2000);
+            //pure javascript;
+            function dataAvailable()
+                {
+                      if(this.readyState==4 && this.status==200)
+                          {
+                            document.getElementById("output").innerHTML =   this.responseText;
+                          }
+                }
+
+            function downloadData()
+                {
+                    var myurl = "https://jsonplaceholder.typicode.com/posts";
+                    var httpReq = new XMLHttpRequest();
+                    httpReq.onreadystatechange = dataAvailable;
+                    httpReq.open("GET", myurl, true);
+                    httpReq.send();
+                }
+
+            //jQuery
+
+            function downloadusingGet()
+            {
+                var myurl = "https://jsonplaceholder.typicode.com/posts";
+                $.get(myurl,function(data,status){
+                                                    $("#output").html(JSON.stringify(data));
+                                                 });
+            }
+         
+
+
+        </script>
+           
+
+
+    </head>
+    <body>
+
+            <button onclick="downloadusingAjax()">Download</button>
+            <div>
+                 <img src="offer6.png" id='slide' style='height:30%;width:50%;'/>
+                
+            </div>
+            
+            <div id='output'>
+                   
+            </div>
+
+               
+
+    </body>
+</html>
